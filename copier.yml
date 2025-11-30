@@ -4,32 +4,32 @@ _min_copier_version: "8.0.0"
 # Questions for user
 project_name:
   type: str
-  help: "Название проекта (например: ds-project)"
+  help: "Project name (e.g., ds-project)"
   default: "ds-project"
 
 project_slug:
   type: str
-  help: "Slug проекта для Python пакета (snake_case)"
+  help: "Project slug for the Python package (snake_case)"
   default: "{{ project_name | lower | replace('-', '_') | replace(' ', '_') }}"
 
 project_description:
   type: str
-  help: "Краткое описание проекта"
+  help: "Short project description"
   default: "A Data Science project"
 
 author_name:
   type: str
-  help: "Имя автора"
+  help: "Author name"
   default: "Data Scientist"
 
 author_email:
   type: str
-  help: "Email автора"
-  default: "ds@example.com"
+  help: "Author email (optional)"
+  default: ""
 
 python_version:
   type: str
-  help: "Версия Python"
+  help: "Python version"
   choices:
     - "3.10"
     - "3.11"
@@ -38,12 +38,12 @@ python_version:
 
 use_jupyter:
   type: bool
-  help: "Добавить поддержку Jupyter?"
+  help: "Include Jupyter support?"
   default: true
 
 ml_framework:
   type: str
-  help: "Основной ML фреймворк"
+  help: "Primary ML framework"
   choices:
     - "sklearn"
     - "pytorch"

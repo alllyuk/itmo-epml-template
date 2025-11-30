@@ -74,4 +74,8 @@ docker run -it {{ project_slug }}
 ```
 
 ### Author
+{% if author_email|trim %}
 {{ author_name }} <{{ author_email }}>
+{% else %}
+{{ author_name }}
+{% endif %}
