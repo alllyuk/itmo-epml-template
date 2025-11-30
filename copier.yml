@@ -1,0 +1,52 @@
+# Copier configuration
+_min_copier_version: "8.0.0"
+
+# Questions for user
+project_name:
+  type: str
+  help: "Название проекта (например: ds-project)"
+  default: "ds-project"
+
+project_slug:
+  type: str
+  help: "Slug проекта для Python пакета (snake_case)"
+  default: "{{ project_name | lower | replace('-', '_') | replace(' ', '_') }}"
+
+project_description:
+  type: str
+  help: "Краткое описание проекта"
+  default: "A Data Science project"
+
+author_name:
+  type: str
+  help: "Имя автора"
+  default: "Data Scientist"
+
+author_email:
+  type: str
+  help: "Email автора"
+  default: "ds@example.com"
+
+python_version:
+  type: str
+  help: "Версия Python"
+  choices:
+    - "3.10"
+    - "3.11"
+    - "3.12"
+  default: "3.10"
+
+use_jupyter:
+  type: bool
+  help: "Добавить поддержку Jupyter?"
+  default: true
+
+ml_framework:
+  type: str
+  help: "Основной ML фреймворк"
+  choices:
+    - "sklearn"
+    - "pytorch"
+    - "tensorflow"
+    - "none"
+  default: "sklearn"

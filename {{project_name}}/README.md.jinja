@@ -1,0 +1,77 @@
+# {{ project_name }}
+
+{{ project_description }}
+
+## 🚀 Quick Start
+
+### Prerequisites
+
+- Python {{ python_version }}+
+- Poetry
+- Git
+
+### Installation
+
+```bash
+# Clone repository
+git clone <repository-url>
+cd {{ project_name }}
+
+# Install dependencies
+poetry install
+
+# Activate virtual environment
+poetry shell
+
+# Install pre-commit hooks
+pre-commit install
+```
+
+### Running Tests
+```bash
+poetry run pytest
+```
+
+### Code Quality
+```bash
+# Run all pre-commit hooks
+pre-commit run --all-files
+
+# Format code
+poetry run black src/ tests/
+poetry run isort src/ tests/
+
+# Lint code
+poetry run ruff check src/ tests/
+```
+
+### Project Structure
+{{ project_name }}/
+├── configs/           # Configuration files (Hydra, etc.)
+├── data/
+│   ├── raw/          # Original, immutable data
+│   ├── processed/    # Cleaned, transformed data
+│   └── external/     # Data from external sources
+├── models/           # Trained model files
+├── notebooks/        # Jupyter notebooks for exploration
+├── reports/
+│   └── figures/      # Generated graphics and figures
+├── src/
+│   └── {{ project_slug }}/  # Source code
+├── tests/            # Unit tests
+├── .pre-commit-config.yaml
+├── pyproject.toml
+├── .gitignore
+├── Dockerfile
+└── README.md
+
+### Docker
+```bash
+# Build image
+docker build -t {{ project_slug }} .
+# Run container
+docker run -it {{ project_slug }}
+```
+
+### Author
+{{ author_name }} <{{ author_email }}>
