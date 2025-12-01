@@ -39,13 +39,13 @@ pre-commit run --all-files
 
 # Format code
 poetry run black src/ tests/
-poetry run isort src/ tests/
 
 # Lint code
 poetry run ruff check src/ tests/
 ```
 
 ### Project Structure
+```
 {{ project_name }}/
 ├── configs/           # Configuration files (Hydra, etc.)
 ├── data/
@@ -64,6 +64,7 @@ poetry run ruff check src/ tests/
 ├── .gitignore
 ├── Dockerfile
 └── README.md
+```
 
 ### Docker
 ```bash
@@ -73,7 +74,16 @@ docker build -t {{ project_slug }} .
 docker run -it {{ project_slug }}
 ```
 
-### Author
+## Branching strategies
+
+| Branch        | Purpose            |
+|--------------|---------------------|
+| main         | Stable version    |
+| develop      | Features integration       |
+| feature/*    | New features     |
+| hotfix/*     | Urgent fixes  |
+
+## Author
 {% if author_email|trim %}
 {{ author_name }} <{{ author_email }}>
 {% else %}

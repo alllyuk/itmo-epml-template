@@ -1,8 +1,8 @@
 [tool.poetry]
 name = "{{ project_slug }}"
 version = "0.1.0"
-description = "{{ project_description }}"
-authors = ["{{ author_name }} <{{ author_email }}>"]
+description = '{{ project_description }}'
+authors = ["{% if author_email|trim %}{{ author_name }} <{{ author_email }}>{% else %}{{ author_name }}{% endif %}"]
 readme = "README.md"
 packages = [{include = "{{ project_slug }}", from = "src"}]
 
@@ -94,22 +94,6 @@ extend-exclude = '''
     | dist
 )/
 '''
-
-# ===== ISORT Configuration =====
-[tool.isort]
-profile = "black"
-line_length = 88
-known_first_party = ["{{ project_slug }}"]
-skip = [
-    ".venv",
-    "venv",
-    "env",
-    ".git",
-    "__pycache__",
-    "build",
-    "dist",
-]
-skip_gitignore = true
 
 # ===== MYPY Configuration =====
 [tool.mypy]

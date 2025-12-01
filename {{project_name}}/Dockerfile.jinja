@@ -13,7 +13,7 @@ WORKDIR /app
 
 COPY pyproject.toml poetry.lock* ./
 
-RUN poetry install --no-dev --no-root
+RUN poetry install --no-dev
 
 FROM python:{{ python_version }}-slim as runtime
 
@@ -28,4 +28,4 @@ COPY --from=builder /app/.venv ./.venv
 COPY src/ ./src/
 COPY configs/ ./configs/
 
-CMD ["python", "-m", "{{ project_slug }}"]
+CMD ["python", "src/{{ project_slug }}/main.py"]
