@@ -34,6 +34,7 @@ ruff = "^0.1.9"
 mypy = "^1.8.0"
 black = "^23.12.0"
 isort = "^5.13.0"
+bandit = "^1.7.6"
 
 [build-system]
 requires = ["poetry-core"]
@@ -107,6 +108,11 @@ exclude = [
     "^env/",
     "^build/",
 ]
+
+# ===== BANDIT Configuration =====
+[tool.bandit]
+exclude_dirs = ["tests", ".venv", "venv", "env"]
+targets = ["src"]
 
 # ===== PYTEST Configuration =====
 [tool.pytest.ini_options]

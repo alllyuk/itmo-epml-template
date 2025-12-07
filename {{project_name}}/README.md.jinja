@@ -42,6 +42,9 @@ poetry run black src/ tests/
 
 # Lint code
 poetry run ruff check src/ tests/
+
+# Check security
+poetry run bandit -r src/ -c pyproject.toml
 ```
 
 ### Project Structure
